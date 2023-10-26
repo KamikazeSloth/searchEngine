@@ -2,6 +2,14 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
+const webpack = require('webpack');
+const webpackDevMiddleware = require('webpack-dev-middleware');
+
+const config = require('./webpack.config.js');
+const hotModuleConfig = require("webpack-hot-middleware")
+
+const compiler = webpack(config);
+
 const server = http.createServer((req, res) => {
     // Determine the requested file path
     const filePath = path.join(__dirname, req.url);
@@ -39,6 +47,18 @@ const server = http.createServer((req, res) => {
     }
 });
 
+// Use Webpack Dev Middleware
+server.on('request', (req, res) => {
+    // Use the middleware to handle requests
+    hotModuleConfig(compiler);
+
+    webpackDevMiddleware(compiler, {
+      publicPath: config.output.publicPath,
+    })(req, res, () => {});
+  });
+  
+
 server.listen(5000, () => {
     console.log("> server on 5000");
 });
+
