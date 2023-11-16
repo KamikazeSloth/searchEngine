@@ -1,7 +1,4 @@
-
-      const findMostSearchedWords = (allMatches, searchInput) => {
-        console.log(allMatches)  
-        console.log(searchInput)  
+    export const findMostSearchedWords = (allMatches, searchInput) => {
 
       allMatches = allMatches.filter((match) => {
           if(match.numberOfMatchingChars === searchInput.length) {
@@ -11,8 +8,7 @@
         return allMatches
     }
   
-  
-  var kitesurfingKites = [
+  export const kitesurfingKites = [
     {
       id: 1,
       name: "Airush Lithium V11",
@@ -28,13 +24,13 @@
     {
       id: 3,
       name: "Duotone Rebel",
-      brand: "Duotone Kiteboarding",
+      brand: "Duotone",
       model: "Rebel"
     },
     {
       id: 4,
       name: "Duotone Vegas",
-      brand: "Duotone Kiteboarding",
+      brand: "Duotone",
       model: "Vegas"
     },
     {
@@ -45,7 +41,7 @@
     }
   ];
   
-    const findAllMatchingResults = (searchInput, products, category) => {
+   export const findAllMatchingResults = (searchInput, products, category) => {
   
           let numberOfMatchingChars = 0
           let matchingResults = []
@@ -78,7 +74,7 @@
   
     var inputField = document.getElementById("inputField");
   
-    inputField.addEventListener("input", function(event) {
+    inputField?.addEventListener("input", function(event) {
       var inputText = event.target.value;
       const category = document.getElementById("dropdownChosenCategory").innerHTML
       searchForProduct(inputText, kitesurfingKites, category)  
