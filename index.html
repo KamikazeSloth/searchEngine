@@ -11,59 +11,21 @@
       sök efter produkter:
       <input type="text" id="inputField" />
       <div id="dropdown">
-          <span id="dropdownChosenCategory">categoryss</span>
+          <span id="dropdownChosenCategory">categori</span>
           <div id="dropdownDisplayChosenAlternative">
           </div>
       </div>
     </div>
-    <button id="myButton">asd</button>
   </body>
   </html>
 <script type="module">
-      import { closeDropdown, expandDropdown, searchForProduct } from "./searchEngine.js"
-      
-      document.getElementById('dropdown').onmouseleave = closeDropdown;
-      document.getElementById('dropdownChosenCategory').onmouseover = expandDropdown;
-
-      var inputField = document.getElementById("inputField");
-
-inputField.addEventListener("input", function(event) {
+  import { closeDropdown, expandDropdown, searchForProductOnInput } from "./searchEngine.js"
   
-  var kites = [
-  {
-    id: 1,
-    name: "Airush Lithium V11",
-    brand: "Airush Kites",
-    model: "Lithium V11"
-  },
-  {
-    id: 2,
-    name: "Cabrinha Switchblade",
-    brand: "Cabrinha",
-    model: "Switchblade"
-  },
-  {
-    id: 3,
-    name: "Duotone Rebel",
-    brand: "Duotone Kiteboarding",
-    model: "Rebel"
-  },
-  {
-    id: 4,
-    name: "Duotone Vegas",
-    brand: "Duotone Kiteboarding",
-    model: "Vegas"
-  },
-  {
-    id: 5,
-    name: "Naish Pivot",
-    brand: "Naish Kites",
-    model: "Pivot"
-  }
-];
-  
-  var inputText = event.target.value;
-  const category = document.getElementById("dropdownChosenCategory").innerHTML
-  searchForProduct(inputText, kites, category)  
-});
+  document.getElementById('dropdown').onmouseleave = closeDropdown;
+  document.getElementById('dropdownChosenCategory').onmouseover = expandDropdown;
+
+  var inputField = document.getElementById("inputField");
+  inputField.addEventListener("input", function(event) {
+    searchForProductOnInput(event)
+  });
 </script>

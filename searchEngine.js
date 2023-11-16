@@ -97,3 +97,9 @@ export const setChosenCategory = (category) => {
     document.getElementById("dropdownChosenCategory").innerHTML = category
     closeDropdown()
 }
+
+export const searchForProductOnInput = (event) => {
+    var inputText = event.target.value;
+    const category = document.getElementById("dropdownChosenCategory").innerHTML
+    searchForProduct(inputText, kitesurfingKites, category)  
+}
