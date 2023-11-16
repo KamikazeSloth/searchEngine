@@ -1,0 +1,55 @@
+@font-face {
+    font-family: ceasarFontMain;
+    src: url(/styles/fonts/FjallaOne-Regular.ttf);
+}
+
+.largeHeader {
+    font-family: ceasarFontMain;
+    color: var(--deepSea)
+}
+
+.label {
+    font-family: ceasarFontMain;
+    color: var(--deepSea)
+}
+
+.dropDownContainer {
+    margin: 8px 0 0 0;
+}
+
+.dropDownContainer:hover {
+    cursor: pointer;
+}
+
+.dropDownDisplayer {
+    font-family: ceasarFontMain;
+    color: var(--deepSea);
+    background-color: var(--sky);
+    width: 64px;
+    height: 16px;
+    padding: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px 8px 0 0;
+}
+
+.dropDownFoldOutItems {
+    color: var(--deepSea);
+    font-family: ceasarFontMain;
+    background-color: var(--sky);
+    width: 64px;
+    padding: 8px;
+}
+
+.dropDownFoldOutItems:hover {
+    background-color: var(--white);
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--cloud);
+}
