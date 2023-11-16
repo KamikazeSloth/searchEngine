@@ -31,6 +31,7 @@
     model: "Pivot"
   }
 ];
+
     export const findMostSearchedWords = (allMatches, searchInput) => {
 
       allMatches = allMatches.filter((match) => {

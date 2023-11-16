@@ -23,9 +23,7 @@
   
   document.getElementById('dropdown').onmouseleave = closeDropdown;
   document.getElementById('dropdownChosenCategory').onmouseover = expandDropdown;
-
-  var inputField = document.getElementById("inputField");
-  inputField.addEventListener("input", function(event) {
+  document.getElementById("inputField").addEventListener("input", function(event) {
     searchForProductOnInput(event)
   });
 </script>
