@@ -33,7 +33,6 @@
 ];
 
     export const findMostSearchedWords = (allMatches, searchInput) => {
-
       allMatches = allMatches.filter((match) => {
           if(match.numberOfMatchingChars === searchInput.length) {
               return match
@@ -77,6 +76,7 @@
       
 export const closeDropdown = () => {
     const dropdownDisplayChosenAlternative = document.getElementById("dropdownDisplayChosenAlternative")
+    dropdownDisplayChosenAlternative.className = ""
    
     while (dropdownDisplayChosenAlternative.firstChild) {
         dropdownDisplayChosenAlternative.removeChild(dropdownDisplayChosenAlternative.lastChild);
@@ -85,9 +85,11 @@ export const closeDropdown = () => {
 
 export const expandDropdown = () => {
     const dropdownDisplayChosenAlternative = document.getElementById("dropdownDisplayChosenAlternative")
+    dropdownDisplayChosenAlternative.className = "dropDownFoldOutItems"
 
     for (const category in kitesurfingKites[0]) {
         let div = document.createElement("div");
+        div.className = "dropDownFoldOutItem"
         div.innerHTML = category
         div.addEventListener("click", () => setChosenCategory(category));
         dropdownDisplayChosenAlternative.append(div)
@@ -102,5 +104,21 @@ export const setChosenCategory = (category) => {
 export const searchForProductOnInput = (event) => {
     var inputText = event.target.value;
     const category = document.getElementById("dropdownChosenCategory").innerHTML
-    searchForProduct(inputText, kitesurfingKites, category)  
+    const searchResult = searchForProduct(inputText, kitesurfingKites, category)  
+
+    displaySearchResult(searchResult)
+}
+
+export const displaySearchResult = (results) => {
+  const resultTable = document.getElementById("resultTable")
+
+  if(resultTable.innerHTML !== "") {
+    resultTable.innerHTML = ""
+  }
+
+  for (const result of results) {
+    let resultHtmlElement = document.createElement("div");
+    resultHtmlElement.innerHTML = result.matchingProduct.name
+    resultTable.appendChild(resultHtmlElement)
+  }
 }

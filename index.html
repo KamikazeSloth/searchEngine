@@ -8,19 +8,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
-  <body class="main">
-    <h1 class="largeHeader">Ceasar inc.</h1>
-    <div>
-      <label class="label">Välj kategori att söka efter</label>
-      <div id="dropdown" class="dropDownContainer">
-          <span id="dropdownChosenCategory" class="dropDownDisplayer">categori</span>
-          <div id="dropdownDisplayChosenAlternative" class="dropDownFoldOutItems">
-          </div>
+  <div class="header">
+    <h1 class="largeHeader headersHeading">Ceasar inc.</h1>
+  </div>
+  <body class="mainLayout">
+    <div class="body">
+      <div>
+        <label class="label">Välj kategori att söka efter</label>
+        <div id="dropdown" class="dropDownContainer">
+            <span id="dropdownChosenCategory" class="dropDownDisplayer">categori</span>
+            <div id="dropdownDisplayChosenAlternative">
+            </div>
+        </div>
+        <label class="label">Sök sedan efter produkter:</label>
+        <input class="inputField" type="text" id="inputField" />
       </div>
-      <label class="label">Sök sedan efter produkter:</label>
-      <input type="text" id="inputField" />
+      <div>
+        <h2 class="mediumHeader">Sökt resultat:</h2>
+        <div id="resultTable">
+
+        </div>
+      </div>
     </div>
   </body>
+  <footer class="footer">
+    footer content
+  </footer>
   </html>
 <script type="module">
   import { closeDropdown, expandDropdown, searchForProductOnInput } from "./searchEngine.js"

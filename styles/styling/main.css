@@ -5,7 +5,14 @@
 
 .largeHeader {
     font-family: ceasarFontMain;
-    color: var(--deepSea)
+    color: var(--deepSea);
+    font-size: 40px;
+}
+
+.mediumHeader {
+    font-family: ceasarFontMain;
+    color: var(--deepSea);
+    font-size: 32px;
 }
 
 .label {
@@ -42,14 +49,69 @@
     padding: 8px;
 }
 
-.dropDownFoldOutItems:hover {
-    background-color: var(--white);
+.dropDownFoldOutItem {
+    padding: 8px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
-.main {
+.dropDownFoldOutItem:hover {
+    background-color: var(--white);
+    width: calc(100% + 16px);
+    margin: 0 -8px;
+}
+
+.mainLayout {
+    display: grid;
+    grid-template-columns: 15% auto 15%;
+    grid-template-rows: 140px 70vh 140px;
+    grid-template-areas: 
+    "header header header"
+    ". mainBody ."
+    "footer footer footer";
+    background-color: var(--white);
+    margin: 0;
+}
+
+.header {
+    grid-area: header;
+    background-color: var(--deepSea);
+    color: white;
+}
+
+.header > .largeHeader {
+    color: white;
+}
+
+.headersHeading {
     display: flex;
-    flex-direction: column;
-    width: 100vw;
-    height: 100vh;
-    background-color: var(--cloud);
+    align-items: center;
+    margin: 0 15%;
+    height: 140px;
+}
+
+.body {
+    grid-area: mainBody;
+    padding: 16px 0;
+}
+
+.footer {
+    grid-area: footer;
+    background-color: var(--sky);
+}
+
+.inputField {
+    padding: 8px;
+    border: none;
+    border-bottom: 2px solid var(--deepSea);
+    background: var(--sky);
+    border-radius: 4px;
+    font-family: ceasarFontMain;
+}
+
+@media only screen and (min-width: 992px) {
+    .largeHeader {
+        font-size: 64px;
+    }
+    
 }
