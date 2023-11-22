@@ -1,5 +1,5 @@
 import { findMostSearchedWords, findAllMatchingResults } from "./searchEngine"
-import { kitesurfingKites } from "./kites.js"
+import { kitesurfingKites } from "./kites.ts"
 
 describe("searchEngine", () => {
     test("amount of searched words matching should match the number of matching chars returned", () => {
