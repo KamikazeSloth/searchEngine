@@ -14,13 +14,13 @@
   <body class="mainLayout">
     <div class="body">
       <div>
-        <label class="label">Välj kategori att söka efter</label>
+        <label class="label">1. Välj kategori att söka efter</label>
         <div id="dropdown" class="dropDownContainer">
             <span id="dropdownChosenCategory" class="dropDownDisplayer">categori</span>
             <div id="dropdownDisplayChosenAlternative">
             </div>
         </div>
-        <label class="label">Sök sedan efter produkter:</label>
+        <label class="label">2. Sök sedan efter produkter:</label>
         <input class="inputField" type="text" id="inputField" />
       </div>
       <div>
@@ -37,11 +37,16 @@
   </html>
 <script type="module">
   import { closeDropdown, expandDropdown, searchForProductOnInput } from "./searchEngine.js"
+  import { getKites } from "./services/getKites.js"
+
+  const kites = await getKites()
   
   document.getElementById('dropdown').onmouseleave = closeDropdown;
-  document.getElementById('dropdownChosenCategory').onmouseover = expandDropdown;
+  document.getElementById("dropdownChosenCategory").addEventListener("mouseover", function() {
+    expandDropdown(kites)
+  });
   document.getElementById("inputField").addEventListener("input", function(event) {
-    searchForProductOnInput(event)
+    searchForProductOnInput(event, kites)
   });
 </script>
 

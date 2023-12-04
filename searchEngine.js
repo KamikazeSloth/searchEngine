@@ -1,5 +1,3 @@
-import { kitesurfingKites } from "./kites.ts"
-
 export const findMostSearchedWords = (allMatches, searchInput) => {
       allMatches = allMatches.filter((match) => {
           if(match.numberOfMatchingChars === searchInput.length) {
@@ -51,11 +49,11 @@ export const closeDropdown = () => {
     }
 }
 
-export const expandDropdown = () => {
+export const expandDropdown = (kites) => {
     const dropdownDisplayChosenAlternative = document.getElementById("dropdownDisplayChosenAlternative")
     dropdownDisplayChosenAlternative.className = "dropDownFoldOutItems"
 
-    for (const category in kitesurfingKites[0]) {
+    for (const category in kites[0]) {
         let div = document.createElement("div");
         div.className = "dropDownFoldOutItem"
         div.innerHTML = category
@@ -69,10 +67,10 @@ export const setChosenCategory = (category) => {
     closeDropdown()
 }
 
-export const searchForProductOnInput = (event) => {
+export const searchForProductOnInput = (event, kites) => {
     var inputText = event.target.value;
     const category = document.getElementById("dropdownChosenCategory").innerHTML
-    const searchResult = searchForProduct(inputText, kitesurfingKites, category)  
+    const searchResult = searchForProduct(inputText, kites, category)  
 
     displaySearchResult(searchResult)
 }

@@ -1,11 +1,6 @@
-interface kite {
-  id: number
-  name: string
-  brand: string
-  model: string
-}
 
-  export const kitesurfingKites: kite[] = [
+
+  export const kitesurfingKites = [
     {
       id: 1,
       name: "Airush Lithium V11",
